@@ -1,0 +1,16 @@
+{% extends "videopages/base.html" %}
+{% load video_tags i18n %}
+
+{% block title %}{% trans "Latest videos" %}{% endblock %}
+
+{% block content %}
+
+{% for videopage in objects_page.object_list %}
+        {{ videopage.author.username }} {{ videopage.parent }}
+        <a href="{% url videopages_page videopage.slug %}">{{ videopage.name }}</a>
+        {{ videopage.description }}
+{% endfor %}
+
+{% include "videopages/paginator.html" %}
+
+{% endblock %}
