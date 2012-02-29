@@ -1,0 +1,20 @@
+syntax: regexp
+
+^.+\.db$
+^.+\.sqlite$
+^.+\.pyc$
+^.+\.log$
+^.+\$py\.class$
+^.+overrides.py$
+^.coverage$
+^.+\.egg-info$
+
+# ignore project dirs
+
+media/
+cover/
+build/
+src/
+.idea/
+build/
+dist/

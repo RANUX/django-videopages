@@ -1,0 +1,17 @@
+{% extends "videopages/base.html" %}
+{% load video_tags %}
+
+{% block title %}{{videopage.name}}{% endblock %}
+
+{% block content %}
+
+    <h1>{{ videopage.name }}</h1>
+
+    {% get_videos_for videopage as "videos" %}
+    {% for video in videos %}
+        {% embed_video video 640x480 %}
+    {% endfor %}
+
+    <p>{{ videopage.description }}</p>
+
+{% endblock %}

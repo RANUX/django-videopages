@@ -1,0 +1,12 @@
+[
+    {
+        "pk":2,
+        "model":"videopages.videopage",
+        "fields":{
+            "description":"Awesom lessons",
+            "created":"2012-02-23 05:02:06",
+            "modified":"2012-02-23 05:02:06",
+            "author":1
+        }
+    }
+]
