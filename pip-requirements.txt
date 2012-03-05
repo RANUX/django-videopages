@@ -1,5 +1,4 @@
 django>=1.3
--e git+https://github.com/RANUX/django-catalogs.git#egg=django-catalogs
 django-videos
 django-tagging
 

@@ -11,7 +11,7 @@
     {% embed_video video 320x240 %}
 {% endfor %}
 
-<form method="post" action="{% url videopages_edit videopage.slug %}">
+<form method="post" action="{% url videopages_edit videopage.author.username videopage.slug %}">
     {% csrf_token %}
     {{ videopage_form }}
     <p class="submit">

@@ -8,8 +8,7 @@ __email__ = 'admin@httpbots.com'
 
 class VideoPageListViewTestCase(BaseTestCase):
     fixtures = [
-        "catalogs.json",
-        "videopages.json"
+        "videopages_videopages.json"
     ]
 
     def test_list(self):

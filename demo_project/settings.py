@@ -28,6 +28,19 @@ DATABASES = {
     }
 }
 
+NOSE_ARGS = ['--nocapture',
+             '--all-modules',
+             '--nologcapture',
+             '--verbosity=2',
+             '--with-coverage',
+             '--cover-package=videopages',
+             'videopages'
+             #             '--cover-html',
+             #             '--with-doctest',
+             #             '--cover-erase',
+             #             '--cover-tests',
+]
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -134,7 +147,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tagging',
-    'catalogs',
     'videopages',
     'djangovideos',
     'django.contrib.admin',
@@ -143,8 +155,7 @@ INSTALLED_APPS = (
 
 if TEST_RECORDER:
     RECORDER_FIXTURES = [
-        'videopages/fixtures/catalogs.json',
-        'videopages/fixtures/videopages.json'
+        'videopages_videopages.json'
     ]
     RECORDER_IGNORE = (
         '^/admin.*',

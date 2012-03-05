@@ -11,4 +11,4 @@ class VideoPageForm(forms.ModelForm):
 
     class Meta:
         model = VideoPage
-        fields = ('name', 'description', 'slug', 'tags')
+        fields = ('title', 'description', 'slug', 'tags', 'language_code')

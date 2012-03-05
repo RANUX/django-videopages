@@ -1,4 +1,5 @@
 # -*- coding: UTF-8 -*-
+from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.views.generic.base import TemplateView
@@ -12,14 +13,10 @@ class VideoPageView(TemplateView):
     template_name = 'videopages/page.html'
 
 
-    def get(self, request, *args, **kwargs):
-        url = kwargs.get('url')
+    def get(self, request, username, url, *args, **kwargs):
 
-        if url:
-            if not url.endswith('/'):
-                return HttpResponseRedirect("%s/" % request.path)
-
-            slug = filter(None, url.split("/"))[-1]  # filter removes empty strings
-            videopage = get_object_or_404(VideoPage, slug=slug, deleted=False)
+        author = get_object_or_404(User, username=username)
+        slug = filter(None, url.split("/"))[-1]  # filter removes empty strings
+        videopage = get_object_or_404(VideoPage, slug=slug, author=author)
 
         return self.render_to_response({'videopage': videopage})

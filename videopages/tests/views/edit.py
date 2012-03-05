@@ -9,26 +9,30 @@ __email__ = 'admin@httpbots.com'
 
 class VideoPageTestCase(BaseTestCase):
     fixtures = [
-        "catalogs.json",
-        "videopages.json"
+        "videopages_videopages.json"
     ]
 
     def test_create_and_edit(self):
+        self.set_edit_video_user_permissions()
         page_slug = VideoPage.objects.all().order_by('-id')[0].slug
-        url = reverse("videopages_edit", kwargs={"slug": page_slug})
+        url = reverse("videopages_edit", args=[self.user.username, page_slug])
         response = self.client.get(url)
         self.failUnlessEqual(response.status_code, 200)
 
         data = {
             "tags": u"lesson",
-            "name": u"lesson 9",
-            "slug": u"lesson-9",
-            "description": u"test lesson"
+            "title": u"lesson 9",
+            "slug": u"awesom-lesson",
+            "description": u"test lesson",
+            "language_code": u"en",
         }
-        url = reverse("videopages_edit", kwargs={"slug": page_slug})
+        url = reverse("videopages_edit", args=[self.user.username, page_slug])
         response = self.client.post(url, data)
-        self.assertRedirects(response, reverse("videopages_edit", kwargs={"slug": "lesson-9"})+u"?")
+        self.assertRedirects(response, reverse("videopages_edit", args=[self.user.username, data['slug']]))
 
-        url = reverse("videopages_edit", kwargs={"slug": "lesson-9"})
+        url = reverse("videopages_edit", args=[self.user.username, data['slug']])
         response = self.client.get(url)
+        for key in data.keys():
+            self.assertContains(response, data[key])
+
         self.failUnlessEqual(response.status_code, 200)

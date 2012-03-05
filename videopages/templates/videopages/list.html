@@ -7,7 +7,7 @@
 
 {% for videopage in objects_page.object_list %}
         {{ videopage.author.username }} {{ videopage.parent }}
-        <a href="{% url videopages_page videopage.slug %}">{{ videopage.name }}</a>
+        <a href="{% url videopages_page videopage.author.username videopage.slug %}">{{ videopage.title }}</a>
         {{ videopage.description }}
 {% endfor %}
 

@@ -8,7 +8,6 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^catalogs/', include('catalogs.urls')),
     url(r'^videopages/', include('videopages.urls')),
     url('^videos/', include('djangovideos.urls')),
 )

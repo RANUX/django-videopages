@@ -3,10 +3,15 @@
         "pk":2,
         "model":"videopages.videopage",
         "fields":{
+            "title": "lesson",
+            "slug": "lesson",
+            "author": 1,
+            "language_code": "en",
+            "published": true,
             "description":"Awesom lessons",
             "created":"2012-02-23 05:02:06",
             "modified":"2012-02-23 05:02:06",
-            "author":1
+            "tags": "python, lesson"
         }
     }
 ]
