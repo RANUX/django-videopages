@@ -1,0 +1,21 @@
+{% load video_tags i18n %}
+
+<div class="well">
+    <div class="page-header">
+        <h3>{% trans "Edit video page" %}</h3>
+    </div>
+    <p>{% video_form videopage %}</p>
+
+    {% get_videos_for videopage as "videos" %}
+    {% for video in videos %}
+        {% embed_video video 640x480 %}
+    {% endfor %}
+
+    <form method="post" action="{% url videopages_edit videopage.author.username videopage.slug %}">
+        {% csrf_token %}
+        {{ videopage_form }}
+        <p class="submit">
+            <input type="submit" value="{% trans "Save" %}"/>
+        </p>
+    </form>
+</div>

@@ -63,8 +63,8 @@ msgid "language"
 msgstr "язык"
 
 #: templates/videopages/edit.html:4
-msgid "Add video"
-msgstr "Добавить видеозапись"
+msgid "Edit video"
+msgstr "Редактировать видеозапись"
 
 #: templates/videopages/edit.html:18
 msgid "Save"

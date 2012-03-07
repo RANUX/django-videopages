@@ -1,20 +1,8 @@
 {% extends "videopages/base.html" %}
-{% load video_tags %}
 
 {% block title %}{{videopage.title}}{% endblock %}
 
+{### override in your project ###}
 {% block content %}
-
-    <div class="page-header">
-    <h2>{{ videopage.title }}</h2>
-    </div>
-    <div>
-    {% get_videos_for videopage as "videos" %}
-    {% for video in videos %}
-        {% embed_video video 720x480 %}
-    {% endfor %}
-    </div>
-    <p>{{ videopage.description|linebreaks }}</p>
-
-
+    {% include "videopages/page_inc.html" %}
 {% endblock %}

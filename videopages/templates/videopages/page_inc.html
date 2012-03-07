@@ -1,0 +1,20 @@
+{% load video_tags %}
+
+<div class="page-header">
+    <h2>{{ videopage.title }}
+        {% if videopage.author == user %}
+            <a href="{% url videopages_edit videopage.author.username videopage.slug %}">
+                <img src="{{ STATIC_URL }}videopages/img/edit_video.png" alt="{% trans 'edit video' %}">
+            </a>
+        {% endif %}
+    </h2>
+</div>
+<div>
+    {% get_videos_for videopage as "videos" %}
+    {% for video in videos %}
+        {% embed_video video 720x480 %}
+    {% endfor %}
+</div>
+<div class="well">
+    <p>{{ videopage.description|linebreaks }}</p>
+</div>

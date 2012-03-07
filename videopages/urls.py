@@ -1,7 +1,6 @@
 # -*- coding: UTF-8 -*-
 from django.conf.urls.defaults import patterns, url
 from django.contrib.auth.decorators import login_required, permission_required
-from videopages.views.create import create_page
 from videopages.views.edit import EditVideoView
 from videopages.views.list import VideoPageListView, UserVideoPageListView
 from views.page import VideoPageView
@@ -19,7 +18,7 @@ urlpatterns = patterns('',
         name='videopages_edit'),
     url(r'^(?P<username>[\w]+)/create/$',
         permission_required('djangovideos.add_video')(
-            permission_required('videopages.add_videopage')(login_required(create_page))
+            permission_required('videopages.add_videopage')(login_required(EditVideoView.as_view()))
         ),
         name='videopages_create'),
     url(r'^(?P<username>[\w]+)/video/(?P<url>.*)$', VideoPageView.as_view(), name='videopages_page'),

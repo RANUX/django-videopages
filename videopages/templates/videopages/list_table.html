@@ -1,0 +1,31 @@
+<table class="table table-condensed">
+    {% for videopage in objects_page.object_list %}
+        <tr>
+            <td>
+                <a href="{% url videopages_page videopage.author.username videopage.slug %}">
+                    {% if videopage.thumbnail %}
+                    <img src="{{ videopage.thumbnail.url }}" alt="{{ videopage.title }}">
+                    {% else %}
+                    <img src="{{ STATIC_URL }}videopages/img/video_file.png" alt="{{ videopage.title }}">
+                    {% endif %}
+                </a>
+            </td>
+            <td>
+                <h4>
+                    {% if videopage.title %}
+                        <a href="{% url videopages_page videopage.author.username videopage.slug %}">{{ videopage.title }}</a>
+                    {% else %}
+                        <a href="{% url videopages_edit videopage.author.username videopage.slug %}">{% trans "Edit video title" %}: {{ videopage.slug }}</a>
+                    {% endif %}
+                    [ <a href="{% url videopages_user_list videopage.author.username %}">{{ videopage.author.username }} </a>]
+                    {% if videopage.author == user %}
+                        <a href="{% url videopages_edit videopage.author.username videopage.slug %}">
+                            <img src="{{ STATIC_URL }}videopages/img/edit_video.png" alt="{% trans 'edit video' %}">
+                        </a>
+                    {% endif %}
+                </h4>
+                <p>{{ videopage.description|linebreaks|truncatewords:30 }}</p>
+            </td>
+        </tr>
+    {% endfor %}
+</table>

@@ -3,29 +3,8 @@
 
 {% block title %}{% trans "Latest videos" %}{% endblock %}
 
+{### override in your project ###}
 {% block content %}
-
-<table class="table table-condensed">
-{% for videopage in objects_page.object_list %}
-        <tr>
-            {% if videopage.thumbnail %}
-            <td>
-                <a href="{% url videopages_page videopage.author.username videopage.slug %}">
-                    <img src="{{ videopage.thumbnail.url }}" alt="{{ videopage.title }}">
-                </a>
-            </td>
-            {% endif %}
-            <td>
-            <h4>
-            <a href="{% url videopages_page videopage.author.username videopage.slug %}">{{ videopage.title }}</a>
-            [ <a href="{% url videopages_user_list videopage.author.username %}">{{ videopage.author.username }} </a> ]
-            </h4>
-            {{ videopage.description|linebreaks|truncatewords:30 }}
-            </td>
-        </tr>
-{% endfor %}
-</table>
-
+{% include "videopages/list_table.html" %}
 {% include "videopages/paginator.html" %}
-
 {% endblock %}

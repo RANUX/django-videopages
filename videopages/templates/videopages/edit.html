@@ -1,21 +1,9 @@
 {% extends "videopages/base.html" %}
 {% load video_tags i18n %}
 
-{% block title %}{% trans "Add video" %}{% endblock %}
+{% block title %}{% trans "Edit video" %}{% endblock %}
 
+{### override in your project ###}
 {% block content %}
-<p>{% video_form videopage %}</p>
-
-{% get_videos_for videopage as "videos" %}
-    {% for video in videos %}
-    {% embed_video video 320x240 %}
-{% endfor %}
-
-<form method="post" action="{% url videopages_edit videopage.author.username videopage.slug %}">
-    {% csrf_token %}
-    {{ videopage_form }}
-    <p class="submit">
-        <input type="submit" value="{% trans "Save" %}"/>
-    </p>
-</form>
+    {% include "videopages/edit_form.html" %}
 {% endblock %}
