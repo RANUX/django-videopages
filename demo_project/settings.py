@@ -147,6 +147,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'tagging',
+    'easy_thumbnails',
     'videopages',
     'djangovideos',
     'django.contrib.admin',

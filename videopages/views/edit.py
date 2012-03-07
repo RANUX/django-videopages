@@ -1,10 +1,12 @@
 # -*- coding: UTF-8 -*-
-from django.contrib.auth.decorators import permission_required
 from django.shortcuts import get_object_or_404, redirect
 from django.views.generic.base import TemplateView
+from django.utils.translation import ugettext_lazy as _
+from django.contrib import messages
 from djangovideos.models import Video
 from videopages.forms.page import VideoPageForm
 from videopages.models import VideoPage
+
 
 __author__ = 'Razzhivin Alexander'
 __email__ = 'admin@httpbots.com'
@@ -23,6 +25,7 @@ class EditVideoView(TemplateView):
         videopage_form = VideoPageForm(request.POST, instance=videopage)
         if videopage_form.is_valid():
             videopage_form.save()
+            messages.info(request, _("Video page saved successfully"))
             return redirect('videopages_edit', request.user.username, videopage.slug)
         else:
             videopage_form = VideoPageForm(instance=videopage)

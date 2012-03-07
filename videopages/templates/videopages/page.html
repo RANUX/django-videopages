@@ -5,13 +5,16 @@
 
 {% block content %}
 
-    <h1>{{ videopage.title }}</h1>
-
+    <div class="page-header">
+    <h2>{{ videopage.title }}</h2>
+    </div>
+    <div>
     {% get_videos_for videopage as "videos" %}
     {% for video in videos %}
-        {% embed_video video 640x480 %}
+        {% embed_video video 720x480 %}
     {% endfor %}
+    </div>
+    <p>{{ videopage.description|linebreaks }}</p>
 
-    <p>{{ videopage.description }}</p>
 
 {% endblock %}
