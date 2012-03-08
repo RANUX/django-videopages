@@ -17,6 +17,6 @@ class VideoPageView(TemplateView):
 
         author = get_object_or_404(User, username=username)
         slug = filter(None, url.split("/"))[-1]  # filter removes empty strings
-        videopage = get_object_or_404(VideoPage, slug=slug, author=author)
+        videopage = get_object_or_404(VideoPage, removed=False, slug=slug, author=author)
 
         return self.render_to_response({'videopage': videopage})

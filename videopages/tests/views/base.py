@@ -21,3 +21,6 @@ class BaseTestCase(TestCase):
     def set_edit_video_user_permissions(self):
         self.user.user_permissions.add(Permission.objects.get(codename='add_video'))
         self.user.user_permissions.add(Permission.objects.get(codename='add_videopage'))
+
+    def set_remove_video_user_permissions(self):
+        self.user.user_permissions.add(Permission.objects.get(codename='remove_videopage'))

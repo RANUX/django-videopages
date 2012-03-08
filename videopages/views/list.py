@@ -15,7 +15,7 @@ class VideoPageListView(TemplateView):
 
     def get(self, request):
         objects_page = create_paginated_page(
-            query_set=VideoPage.objects.filter(published=True).order_by('-id'),
+            query_set=VideoPage.not_removed_objects.filter(published=True).order_by('-id'),
             page_number=request.GET.get('page') or 1,
             objects_per_page=VIDEO_PAGES_PER_PAGE
         )
@@ -27,7 +27,7 @@ class UserVideoPageListView(TemplateView):
     def get(self, request, username):
         author = get_object_or_404(User, username=username)
         objects_page = create_paginated_page(
-            query_set=VideoPage.objects.filter(author=author).order_by('-id'),
+            query_set=VideoPage.not_removed_objects.filter(author=author).order_by('-id'),
             page_number=request.GET.get('page') or 1,
             objects_per_page=VIDEO_PAGES_PER_PAGE
         )

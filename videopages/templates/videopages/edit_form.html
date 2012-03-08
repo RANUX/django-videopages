@@ -5,17 +5,18 @@
         <h3>{% trans "Edit video page" %}</h3>
     </div>
     <p>{% video_form videopage %}</p>
-
+    <div>
     {% get_videos_for videopage as "videos" %}
     {% for video in videos %}
         {% embed_video video 640x480 %}
     {% endfor %}
-
+    </div>
     <form method="post" action="{% url videopages_edit videopage.author.username videopage.slug %}">
         {% csrf_token %}
         {{ videopage_form }}
-        <p class="submit">
-            <input type="submit" value="{% trans "Save" %}"/>
+        <p>
+            <input type="submit" class="btn-success" value="{% trans "Save" %}"/>
+            <a href="{% url videopages_remove videopage.author.username videopage.slug %}"><input type="button" class="btn-danger" value="{% trans "Remove" %}"/></a>
         </p>
     </form>
 </div>
