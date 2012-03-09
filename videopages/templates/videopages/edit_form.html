@@ -11,11 +11,11 @@
         {% embed_video video 640x480 %}
     {% endfor %}
     </div>
-    <form method="post" action="{% url videopages_edit videopage.author.username videopage.slug %}">
+    <form id="videopage-form" method="post" action="{% url videopages_edit videopage.author.username videopage.slug %}">
         {% csrf_token %}
         {{ videopage_form }}
         <p>
-            <input type="submit" class="btn-success" value="{% trans "Save" %}"/>
+            <input id="videopage-success-button" type="submit" class="btn-success" value="{% trans "Save" %}"/>
             <a href="{% url videopages_remove videopage.author.username videopage.slug %}"><input type="button" class="btn-danger" value="{% trans "Remove" %}"/></a>
         </p>
     </form>

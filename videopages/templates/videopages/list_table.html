@@ -4,7 +4,7 @@
     {% for videopage in objects_page.object_list %}
         <tr>
             <td>
-                <a href="{% url videopages_page videopage.author.username videopage.slug %}">
+                <a class="thumbnail" href="{% url videopages_page videopage.author.username videopage.slug %}">
                     {% if videopage.thumbnail %}
                     <img src="{{ videopage.thumbnail.url }}" alt="{{ videopage.title }}">
                     {% else %}
