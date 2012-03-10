@@ -1,0 +1,20 @@
+{% load i18n %}
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#latest-users-videos-rss-button").click(function(){
+            document.location.href='{% url videopages_latest_users_videos %}';
+        })
+    });
+</script>
+<ul class="nav nav-list">
+    <li class="nav-header">
+        {% trans 'Latest users videos' %}
+        <input id="latest-users-videos-rss-button" type="image" name="submit" id="submit" src="{{ STATIC_URL }}videopages/img/rss.png">
+    </li>
+    {% for video in latest_users_videos %}
+        <li>
+            <a href="{% url videopages_page video.author video.slug %}"><i class="icon-film"></i>{{ video.title }}</a>
+        </li>
+    {% endfor %}
+</ul>

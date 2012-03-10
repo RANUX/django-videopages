@@ -1,7 +1,7 @@
 {% load video_tags i18n %}
 
 <div class="page-header">
-    <h2>{{ videopage.title }}
+    <h2><a href="{% url videopages_user_list videopage.author %}">{{ videopage.author }}</a>→{{ videopage.title }}
         {% if videopage.author == user %}
             <a href="{% url videopages_edit videopage.author.username videopage.slug %}">
                 <img src="{{ STATIC_URL }}videopages/img/edit_video.png" alt="{% trans 'edit video' %}">

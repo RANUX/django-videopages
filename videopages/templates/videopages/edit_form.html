@@ -8,7 +8,8 @@
     <div>
     {% get_videos_for videopage as "videos" %}
     {% for video in videos %}
-        {% embed_video video 640x480 %}
+        <div><i class="icon-remove"></i>{% video_delete_link video %}</div>
+        <div>{% embed_video video 480x320 %}</div>
     {% endfor %}
     </div>
     <form id="videopage-form" method="post" action="{% url videopages_edit videopage.author.username videopage.slug %}">

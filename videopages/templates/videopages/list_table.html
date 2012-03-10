@@ -14,12 +14,12 @@
             </td>
             <td>
                 <h4>
+                    <a href="{% url videopages_user_list videopage.author.username %}"><i class="icon-user"></i>{{ videopage.author.username }} </a>→
                     {% if videopage.title %}
                         <a href="{% url videopages_page videopage.author.username videopage.slug %}">{{ videopage.title }}</a>
                     {% else %}
                         <a href="{% url videopages_edit videopage.author.username videopage.slug %}">{% trans "Edit video title" %}: {{ videopage.slug }}</a>
                     {% endif %}
-                    [ <a href="{% url videopages_user_list videopage.author.username %}">{{ videopage.author.username }} </a>]
                     {% if videopage.author == user %}
                         <a href="{% url videopages_edit videopage.author.username videopage.slug %}">
                             <img src="{{ STATIC_URL }}videopages/img/edit_video.png" alt="{% trans 'edit video' %}">

@@ -69,4 +69,4 @@ class VideoPage(models.Model):
         return u'{0} - {1}'.format(self.author.username, self.slug)
 
     def get_absolute_url(self):
-        return reverse('videopages_page', args=[self.slug])
+        return reverse('videopages_page', args=[self.author.username, self.slug])
