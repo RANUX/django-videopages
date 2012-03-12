@@ -9,6 +9,7 @@ from videopages.views.edit import EditVideoView
 from videopages.views.list import VideoPageListView, UserVideoPageListView
 from views.page import VideoPageView
 
+
 __author__ = 'Razzhivin Alexander'
 __email__ = 'admin@httpbots.com'
 

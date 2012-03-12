@@ -1,5 +1,6 @@
-{% load i18n %}
+{% load i18n cache %}
 
+{% cache CACHE_TIMEOUT latest_users_videos_sidebar %}
 <script type="text/javascript">
     $(document).ready(function() {
         $("#latest-users-videos-rss-button").click(function(){
@@ -18,3 +19,4 @@
         </li>
     {% endfor %}
 </ul>
+{% endcache %}

@@ -10,6 +10,7 @@ from tagging.fields import TagField
 from easy_thumbnails.fields import ThumbnailerImageField
 from conf.settings import LANGUAGES, THUMBNAIL_WIDTH, THUMBNAIL_HEIGHT, THUMBNAIL_CROP_TYPE, THUMBNAIL_PATH
 from managers import NotRemovedVideoPageManager
+from videopages.signals import delete_latest_users_videos_cache
 
 __author__ = 'Razzhivin Alexander'
 __email__ = 'admin@httpbots.com'
@@ -70,3 +71,6 @@ class VideoPage(models.Model):
 
     def get_absolute_url(self):
         return reverse('videopages_page', args=[self.author.username, self.slug])
+
+models.signals.post_save.connect(delete_latest_users_videos_cache, sender=VideoPage)
+models.signals.post_delete.connect(delete_latest_users_videos_cache, sender=VideoPage)
