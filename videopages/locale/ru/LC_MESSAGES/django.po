@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-07 14:15+0400\n"
+"POT-Creation-Date: 2012-03-13 17:14+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,62 +18,119 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
-#: models.py:23
+#: models.py:25
 msgid "title"
 msgstr "заголовок"
 
-#: models.py:24
+#: models.py:26
 msgid "slug"
-msgstr "ЧПУ"
+msgstr "понятный URL"
 
-#: models.py:25
+#: models.py:27
 msgid "author"
 msgstr "автор"
 
-#: models.py:26
+#: models.py:28
 msgid "published"
 msgstr "опубликовано"
 
-#: models.py:27
+#: models.py:29
 msgid "created"
 msgstr "создано"
 
-#: models.py:28
+#: models.py:30
 msgid "modified"
 msgstr "изменино"
 
-#: models.py:29
+#: models.py:31
 msgid "description"
 msgstr "описание"
 
-#: models.py:30
+#: models.py:32
 msgid "tags"
 msgstr "метки"
 
-#: models.py:31
+#: models.py:33
+msgid "removed"
+msgstr "удалено"
+
+#: models.py:34
 msgid "thumbnail url"
 msgstr "url эскиза"
 
-#: models.py:33
+#: models.py:36
 msgid "thumbnail"
 msgstr "эскиз"
 
-#: models.py:40
+#: models.py:45
 msgid "language"
 msgstr "язык"
+
+#: templates/videopages/become_publisher.html:4
+msgid "Become publisher"
+msgstr "Стать публикатором"
 
 #: templates/videopages/edit.html:4
 msgid "Edit video"
 msgstr "Редактировать видеозапись"
 
-#: templates/videopages/edit.html:18
+#: templates/videopages/edit_form.html:5
+msgid "Edit video page"
+msgstr "Редактировать видео страницу"
+
+#: templates/videopages/edit_form.html:19
 msgid "Save"
 msgstr "Сохранить"
+
+#: templates/videopages/edit_form.html:20
+msgid "Remove"
+msgstr "Удалить"
+
+#: templates/videopages/latest_users_videos_sidebar.html:17 views/feeds.py:13
+msgid "Latest users videos"
+msgstr "Последние видеозаписи"
 
 #: templates/videopages/list.html:4
 msgid "Latest videos"
 msgstr "Последние видеозаписи"
 
-#: views/edit.py:28
+#: templates/videopages/list_table.html:21
+msgid "Edit video title"
+msgstr "Редактировать заголовок"
+
+#: templates/videopages/list_table.html:25
+#: templates/videopages/page_inc.html:7
+msgid "edit video"
+msgstr "Редактировать видеозапись"
+
+#: templates/videopages/tagcloud_sidebar.html:8
+msgid "Tags"
+msgstr "Метки"
+
+#: views/become_publisher.py:18
+msgid "You became a publisher"
+msgstr "Вы стали публикатором"
+
+#: views/create.py:18
+msgid "Video page created successfully"
+msgstr "Страница с видео создана успешно"
+
+#: views/edit.py:31
 msgid "Video page saved successfully"
 msgstr "Страница с видео сохранена успешно"
+
+#: views/feeds.py:15
+msgid "Updates on adding new videos by users"
+msgstr "Обновляется при новом добавлении видео пользователями"
+
+#: views/feeds.py:33
+msgid "Latest published videos by"
+msgstr "Последние опубликованные видеозаписи"
+
+#: views/feeds.py:36
+msgid "Updates on adding new videos by"
+msgstr "Обновляется при добавлении новых видеозаписей"
+
+#: views/remove.py:16
+msgid "Video page removed successfully"
+msgstr "Страница с видео удалена успешно"

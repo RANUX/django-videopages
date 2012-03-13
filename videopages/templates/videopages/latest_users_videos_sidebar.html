@@ -1,4 +1,8 @@
-{% load i18n cache %}
+{% load i18n cache videopages_tags %}
+
+
+{% get_latest_users_videos %}
+{% get_CACHE_TIMEOUT %}
 
 {% cache CACHE_TIMEOUT latest_users_videos_sidebar %}
 <script type="text/javascript">

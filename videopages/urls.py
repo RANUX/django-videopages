@@ -1,6 +1,7 @@
 # -*- coding: UTF-8 -*-
 from django.conf.urls.defaults import patterns, url
 from django.contrib.auth.decorators import login_required, permission_required
+from videopages.views.become_publisher import BecomePublisherView
 from videopages.views.feeds import LatestUsersVideosFeed, LatestUserVideosFeed
 from videopages.views.tagcloud import VideoPageTagCloudView
 from views.remove import remove_page
@@ -17,6 +18,7 @@ __email__ = 'admin@httpbots.com'
 urlpatterns = patterns('',
     url(r'^$', VideoPageListView.as_view(), name='videopages_list'),
     url(r'^rss/$', LatestUsersVideosFeed(), name='videopages_latest_users_videos'),
+    url(r'^become_publisher/$', login_required(BecomePublisherView.as_view()), name='videopages_become_publisher'),
     url(r'^tag/(?P<tag>[^/]+)/$', VideoPageTagCloudView.as_view(), name='videopages_tagcloud'),
     url(r'^(?P<username>[\w]+)/rss/$', LatestUserVideosFeed(), name='videopages_latest_user_videos'),
     url(r'^(?P<username>[\w]+)/edit/(?P<slug>[\w-]+)/$',
