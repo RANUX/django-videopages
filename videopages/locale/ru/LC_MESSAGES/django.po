@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-13 17:14+0400\n"
+"POT-Creation-Date: 2012-03-14 16:47+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,10 +66,6 @@ msgstr "эскиз"
 msgid "language"
 msgstr "язык"
 
-#: templates/videopages/become_publisher.html:4
-msgid "Become publisher"
-msgstr "Стать публикатором"
-
 #: templates/videopages/edit.html:4
 msgid "Edit video"
 msgstr "Редактировать видеозапись"
@@ -103,13 +99,21 @@ msgstr "Редактировать заголовок"
 msgid "edit video"
 msgstr "Редактировать видеозапись"
 
+#: templates/videopages/publisher_terms.html:4
+msgid "Publisher terms"
+msgstr "Правила публикации"
+
+#: templates/videopages/publisher_terms.html:19
+msgid "Accept terms"
+msgstr "Согласен"
+
 #: templates/videopages/tagcloud_sidebar.html:8
 msgid "Tags"
 msgstr "Метки"
 
-#: views/become_publisher.py:18
-msgid "You became a publisher"
-msgstr "Вы стали публикатором"
+#: views/become_publisher.py:20
+msgid "Now you can publish videos"
+msgstr "Теперь можете публиковать видео"
 
 #: views/create.py:18
 msgid "Video page created successfully"
@@ -134,3 +138,9 @@ msgstr "Обновляется при добавлении новых видео
 #: views/remove.py:16
 msgid "Video page removed successfully"
 msgstr "Страница с видео удалена успешно"
+
+#~ msgid "Become publisher"
+#~ msgstr "Стать публикатором"
+
+#~ msgid "You became a publisher"
+#~ msgstr "Вы стали публикатором"

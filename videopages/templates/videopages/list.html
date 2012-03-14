@@ -1,7 +1,7 @@
 {% extends "videopages/base.html" %}
 {% load i18n %}
 
-{% block title %}{% trans "Latest videos" %}{% endblock %}
+{% block title %}{% trans "Latest videos" %} {{ author_name }}{% endblock %}
 
 {### override in your project ###}
 {% block content %}

@@ -1,0 +1,21 @@
+{% extends "videopages/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans 'Publisher terms' %}{% endblock %}
+
+{% block content %}
+<h4>Правила</h4>
+<ul>
+    <li>Размещать видео только соответствующее тематике сайта</li>
+    <li>Видео может быть удалено по просьбе автора</li>
+    <li>Заголовок и описание видео записи должны соответствовать содержимому видео</li>
+    <li>Запрещена публикация как прямых, так и скрытых ссылок на другие ресурсы сети, за исключением ресурсов авторов видео</li>
+    <li>Запрещено размещать дублирующие видео</li>
+    <li>Видео может быть удалено по усмотрению администрации</li>
+</ul>
+
+<form id="id_accep_terms" method="post" action="{% url videopages_become_publisher %}">
+    {% csrf_token %}
+    <input type="submit" value="{%  trans 'Accept terms' %}" class="btn btn-success" />
+</form>
+{% endblock %}

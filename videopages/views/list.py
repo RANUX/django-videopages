@@ -31,4 +31,4 @@ class UserVideoPageListView(TemplateView):
             page_number=request.GET.get('page') or 1,
             objects_per_page=VIDEO_PAGES_PER_PAGE
         )
-        return self.render_to_response({'objects_page': objects_page })
+        return self.render_to_response({'author_name': author.username, 'objects_page': objects_page })
