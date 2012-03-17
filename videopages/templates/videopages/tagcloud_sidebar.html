@@ -10,7 +10,7 @@
 <ul class="tag-cloud">
     {% for tag in tags %}
     <li>
-        <a href="{% url videopages_tagcloud tag|urlencode %}" style="font-size: 1.5{{ tag.font_size }}em" >{{ tag }}</a>
+        <a href="{% url videopages_tagcloud tag|urlencode %}" style="font-size: 1.{{ tag.font_size|add:-1 }}em" >{{ tag }}</a>
     </li>
     {% endfor %}
 </ul>
