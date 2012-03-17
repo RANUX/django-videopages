@@ -25,7 +25,7 @@ class VideoPage(models.Model):
     title = models.CharField(_('title'), max_length=255)
     slug = models.SlugField(_('slug'), max_length=150)
     author = models.ForeignKey(User, related_name="videos", verbose_name=_('author'))
-    published = models.BooleanField(_('published'), default=False)
+    published = models.BooleanField(_('published'), default=False, db_index=True)
     created = models.DateTimeField(_('created'), auto_now_add=True)
     modified = models.DateTimeField(_('modified'), auto_now=True)
     description = models.TextField(verbose_name=_('description'), blank=True)
