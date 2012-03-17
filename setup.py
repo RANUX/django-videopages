@@ -32,7 +32,7 @@ setup(name='django-videopages',
     include_package_data=True,
     install_requires = [
         'django>=1.3',
-        'django-videos',
+#        'django-videos',
         'easy-thumbnails',
         'django-tagging',
 
