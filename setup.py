@@ -31,7 +31,7 @@ setup(name='django-videopages',
     packages = find_packages(exclude=['demo_project',]),
     include_package_data=True,
     dependency_links = [
-        'https://github.com/RANUX/django-videos/tarball/master',
+        'https://github.com/RANUX/django-videos/tarball/master#egg=django-videos',
     ],
     install_requires = [
         'django>=1.3',
