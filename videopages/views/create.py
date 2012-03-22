@@ -23,7 +23,7 @@ def create_page(request, username):
 
     try:
         # find videopage whithout video or title
-        videopage = VideoPage.not_removed_objects.get(Q(title='') | Q(author=request.user) & ~Q(pk__in=inner_q))
+        videopage = VideoPage.not_removed_objects.get(Q(author=request.user) & (Q(title='') | ~Q(pk__in=inner_q)))
         messages.info(request, _("Finish existing video page"))
     except ObjectDoesNotExist:
         slug = ''.join(random.choice(string.letters) for i in xrange(RANDOM_SLUG_LENGTH))
