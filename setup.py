@@ -30,6 +30,9 @@ setup(name='django-videopages',
     download_url='https://github.com/RANUX/django-videopages/downloads',
     packages = find_packages(exclude=['demo_project',]),
     include_package_data=True,
+    dependency_links = [
+        'https://github.com/RANUX/django-videos/downloads',
+    ],
     install_requires = [
         'django>=1.3',
 #        'django-videos',
