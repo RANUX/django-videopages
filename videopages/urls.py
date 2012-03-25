@@ -20,21 +20,21 @@ urlpatterns = patterns('',
     url(r'^rss/$', LatestUsersVideosFeed(), name='videopages_latest_users_videos'),
     url(r'^become_publisher/$', login_required(BecomePublisherView.as_view()), name='videopages_become_publisher'),
     url(r'^tag/(?P<tag>[^/]+)/$', VideoPageTagCloudView.as_view(), name='videopages_tagcloud'),
-    url(r'^(?P<username>[\w]+)/rss/$', LatestUserVideosFeed(), name='videopages_latest_user_videos'),
-    url(r'^(?P<username>[\w]+)/edit/(?P<slug>[\w-]+)/$',
+    url(r'^(?P<username>[\w\.]+)/rss/$', LatestUserVideosFeed(), name='videopages_latest_user_videos'),
+    url(r'^(?P<username>[\w\.]+)/edit/(?P<slug>[\w-]+)/$',
         permission_required('djangovideos.add_video')(
             permission_required('videopages.add_videopage')(login_required(EditVideoView.as_view()))
         ),
         name='videopages_edit'),
-    url(r'^(?P<username>[\w]+)/create/$',
+    url(r'^(?P<username>[\w\.]+)/create/$',
         permission_required('djangovideos.add_video')(
             permission_required('videopages.add_videopage')(login_required(create_page))
         ),
         name='videopages_create'),
-    url(r'^(?P<username>[\w]+)/remove/(?P<slug>[\w-]+)/$',
+    url(r'^(?P<username>[\w\.]+)/remove/(?P<slug>[\w-]+)/$',
         permission_required('videopages.remove_videopage')(login_required(remove_page)),
         name='videopages_remove'),
-    url(r'^(?P<username>[\w]+)/video/(?P<url>.*)$', VideoPageView.as_view(), name='videopages_page'),
-    url(r'^(?P<username>[\w]+)/(?P<url>.*)/$', VideoPageView.as_view(), name='videopages_page'),
-    url(r'(?P<username>[\w]+)/$', UserVideoPageListView.as_view(), name='videopages_user_list'),
+    url(r'^(?P<username>[\w\.]+)/video/(?P<url>.*)$', VideoPageView.as_view(), name='videopages_page'),
+    url(r'^(?P<username>[\w\.]+)/(?P<url>.*)/$', VideoPageView.as_view(), name='videopages_page'),
+    url(r'(?P<username>[\w\.]+)/$', UserVideoPageListView.as_view(), name='videopages_user_list'),
 )
